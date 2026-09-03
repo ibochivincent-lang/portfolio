@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IBOCHI VINCENT | From Self-Taught to Tech</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="cursor-glow"></div>
+    <div class="cursor"></div>
+
+    <nav id="navbar" class="navbar">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">IV</a>
+            <div class="nav-links">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#story" class="nav-link">Journey</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#design" class="nav-link">Design</a>
+                <a href="#goals" class="nav-link">Goals</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <canvas id="heroCanvas"></canvas>
+        <div class="hero-bg-layer"></div>
+        <div class="hero-grid">
+            <div class="hero-content">
+                <div class="hero-label">
+                    <span class="pulse-dot"></span>
+                    <span class="typing-text">Open to opportunities</span>
+                </div>
+                <h1 class="hero-title">
+                    I'm <span class="gradient-text">Vincent Ibochi</span>
+                </h1>
+                <h2 class="hero-tagline">Self-taught builder &amp; designer from a remote island to the tech space.</h2>
+                <p class="hero-description">
+                    I started in 2017 with Microsoft Word and a hunger to learn. Today I vibe code,
+                    design on Behance, contribute to open source, analyze data, and I'm looking for a PPA
+                    to serve my country while continuing to grow in tech.
+                </p>
+                <div class="hero-stats">
+                    <div class="hero-stat"><span class="stat-num">7+</span>Years building</div>
+                    <div class="hero-stat"><span class="stat-num">4</span>Career paths</div>
+                    <div class="hero-stat"><span class="stat-num">Remote</span>Since 2019</div>
+                </div>
+                <div class="hero-cta">
+                    <a href="#story" class="btn btn-primary">Read My Story</a>
+                    <a href="#contact" class="btn btn-outline">Get In Touch</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="tilt-card" id="heroCard">
+                    <div class="tilt-card-inner">
+                        <div class="hero-card-top">
+                            <div class="hero-avatar">
+                                <span>VI</span>
+                            </div>
+                            <div class="hero-card-badge">OTF · CERTIFIED</div>
+                        </div>
+                        <div class="hero-card-id">
+                            <span class="hero-card-label">FULL NAME</span>
+                            <span class="hero-card-value">VINCENT IBOCHI</span>
+                        </div>
+                        <div class="hero-card-row">
+                            <div>
+                                <span class="hero-card-label">ROLE</span>
+                                <span class="hero-card-value small">Builder · Designer · Analyst</span>
+                            </div>
+                            <div>
+                                <span class="hero-card-label">BASE</span>
+                                <span class="hero-card-value small">Lagos, Nigeria</span>
+                            </div>
+                        </div>
+                        <div class="hero-card-footer">
+                            <span class="hero-card-brand">IBOCHI.DEV</span>
+                            <i class="fas fa-cube"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="float-panel float-panel-1">
+                    <span class="fp-label">Design work</span>
+                    <span class="fp-value">Behance · 7 projects</span>
+                </div>
+                <div class="float-panel float-panel-2">
+                    <span class="fp-dot"></span>
+                    <span class="fp-value">Available for PPA</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <div class="scroll-line"></div>
+            <span>Scroll</span>
+        </div>
+    </section>
+
+    <section id="story" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">01</span>
+                <h2 class="section-title">The Journey</h2>
+            </div>
+            <p class="section-intro">From a quiet start in 2017 to building in the modern tech landscape — every step was deliberate.</p>
+            <div class="timeline-horizontal">
+                <div class="t-node">
+                    <div class="t-dot" style="background:#f59e0b"><i class="fas fa-school"></i></div>
+                    <div class="t-content">
+                        <span class="t-year">2017</span>
+                        <h3>Started the Hustle</h3>
+                        <p>Done with secondary school, hungry to learn. Taught myself Microsoft Word and began working at a cafe, handling printers and repairs.</p>
+                    </div>
+                </div>
+                <div class="t-line"></div>
+                <div class="t-node">
+                    <div class="t-dot" style="background:#7b61ff"><i class="fas fa-palette"></i></div>
+                    <div class="t-content">
+                        <span class="t-year">2017–2018</span>
+                        <h3>Discovered Design</h3>
+                        <p>Learned graphic design alongside tech work — creating letterheads, logos, and promotional materials while mastering system repairs.</p>
+                    </div>
+                </div>
+                <div class="t-line"></div>
+                <div class="t-node">
+                    <div class="t-dot" style="background:#00d4aa"><i class="fas fa-broadcast-tower"></i></div>
+                    <div class="t-content">
+                        <span class="t-year">2019</span>
+                        <h3>Church Media Unit</h3>
+                        <p>Joined my church's media department full-time. Built their website, launched social media presence, and grew an international community.</p>
+                    </div>
+                </div>
+                <div class="t-line"></div>
+                <div class="t-node">
+                    <div class="t-dot" style="background:#ff6b9d"><i class="fas fa-ship"></i></div>
+                    <div class="t-content">
+                        <span class="t-year">2019–2024</span>
+                        <h3>Maritime University</h3>
+                        <p>Enrolled at Nigeria Maritime University on a remote island. Functions were limited, but self-learning never stopped.</p>
+                    </div>
+                </div>
+                <div class="t-line"></div>
+                <div class="t-node">
+                    <div class="t-dot" style="background:#f59e0b"><i class="fas fa-laptop-code"></i></div>
+                    <div class="t-content">
+                        <span class="t-year">2023–2025</span>
+                        <h3>Web3 App Tester</h3>
+                        <p>Ventured into Web3 as a remote app tester — reviewing apps, finding bugs, reporting issues, and playing games. All done from a remote island.</p>
+                    </div>
+                </div>
+                <div class="t-line"></div>
+                <div class="t-node">
+                    <div class="t-dot" style="background:#00d4aa"><i class="fas fa-code"></i></div>
+                    <div class="t-content">
+                        <span class="t-year">2025</span>
+                        <h3>Vibe Coding & Data</h3>
+                        <p>Now vibe coding, contributing to GitHub projects, learning data analysis, and looking for a PPA to serve my country.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">02</span>
+                <h2 class="section-title">Skills & Toolkit</h2>
+            </div>
+            <p class="section-intro">Skills built through self-learning, work experience, and continuous growth.</p>
+            <div class="skills-grid">
+                <div class="skill-group">
+                    <h3 class="skill-group-title"><i class="fas fa-tools"></i> Core Tech</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag"><i class="fab fa-github"></i> Git & GitHub</span>
+                        <span class="skill-tag"><i class="fas fa-code"></i> HTML5</span>
+                        <span class="skill-tag"><i class="fas fa-code"></i> CSS3</span>
+                        <span class="skill-tag"><i class="fas fa-code"></i> JavaScript</span>
+                        <span class="skill-tag"><i class="fas fa-bolt"></i> Vibe Coding</span>
+                    </div>
+                </div>
+                <div class="skill-group">
+                    <h3 class="skill-group-title"><i class="fas fa-chart-bar"></i> Data & Analysis</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag"><i class="fas fa-table"></i> Data Analysis</span>
+                        <span class="skill-tag"><i class="fas fa-spreadsheet"></i> Microsoft Excel</span>
+                        <span class="skill-tag"><i class="fas fa-database"></i> SQL</span>
+                        <span class="skill-tag"><i class="fab fa-python"></i> Python</span>
+                    </div>
+                </div>
+                <div class="skill-group">
+                    <h3 class="skill-group-title"><i class="fas fa-paint-brush"></i> Design</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag"><i class="fab fa-adobe"></i> Photoshop</span>
+                        <span class="skill-tag"><i class="fas fa-film"></i> Video Editing</span>
+                        <span class="skill-tag"><i class="fas fa-image"></i> Graphic Design</span>
+                        <span class="skill-tag"><i class="fas fa-mouse-pointer"></i> UI Basics</span>
+                    </div>
+                </div>
+                <div class="skill-group">
+                    <h3 class="skill-group-title"><i class="fas fa-server"></i> Systems & Web3</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag"><i class="fas fa-wrench"></i> System Repair</span>
+                        <span class="skill-tag"><i class="fas fa-download"></i> Installations</span>
+                        <span class="skill-tag"><i class="fas fa-bug"></i> Bug Reporting</span>
+                        <span class="skill-tag"><i class="fab fa-windows"></i> MS Office Suite</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">03</span>
+                <h2 class="section-title">Experience</h2>
+            </div>
+            <div class="exp-cards">
+                <div class="exp-card">
+                    <div class="exp-header">
+                        <div class="exp-icon" style="background:rgba(245,158,11,0.15);color:#f59e0b"><i class="fas fa-mug-hot"></i></div>
+                        <div class="exp-meta">
+                            <h3>Cafe Worker & Tech Support</h3>
+                            <span class="exp-org">Freelance — 2017–2018</span>
+                        </div>
+                    </div>
+                    <ul class="exp-desc">
+                        <li>Handled printer maintenance and computer repairs</li>
+                        <li>Learned system installation, basic networking, and troubleshooting</li>
+                        <li>Developed graphic design skills — letterheads, logos, flyers</li>
+                        <li>Self-taught Microsoft Word, Excel, and PowerPoint</li>
+                    </ul>
+                </div>
+                <div class="exp-card">
+                    <div class="exp-header">
+                        <div class="exp-icon" style="background:rgba(123,97,255,0.15);color:#7b61ff"><i class="fas fa-broadcast-tower"></i></div>
+                        <div class="exp-meta">
+                            <h3>Head of Media Department</h3>
+                            <span class="exp-org">Church Media Unit — 2019–2020</span>
+                        </div>
+                    </div>
+                    <ul class="exp-desc">
+                        <li>Built and launched the church website from scratch</li>
+                        <li>Established social media presence across all platforms</li>
+                        <li>Grew church community to international audience during COVID-19</li>
+                        <li>Managed digital communications, content creation, and online engagement</li>
+                        <li>Provided technical support and digital strategy</li>
+                    </ul>
+                </div>
+                <div class="exp-card">
+                    <div class="exp-header">
+                        <div class="exp-icon" style="background:rgba(0,212,170,0.15);color:#00d4aa"><i class="fas fa-laptop-code"></i></div>
+                        <div class="exp-meta">
+                            <h3>Web3 App Tester</h3>
+                            <span class="exp-org">Remote — 2023–2025</span>
+                        </div>
+                    </div>
+                    <ul class="exp-desc">
+                        <li>Tested applications, reviewed apps, and documented findings</li>
+                        <li>Identified and reported bugs with detailed reproduction steps</li>
+                        <li>Worked remotely from a remote island with limited infrastructure</li>
+                        <li>Developed strong documentation, communication, and analytical skills</li>
+                    </ul>
+                </div>
+                <div class="exp-card">
+                    <div class="exp-header">
+                        <div class="exp-icon" style="background:rgba(255,107,157,0.15);color:#ff6b9d"><i class="fas fa-graduation-cap"></i></div>
+                        <div class="exp-meta">
+                            <h3>Nigeria Maritime University</h3>
+                            <span class="exp-org">B.Eng. — 2019–2024</span>
+                        </div>
+                    </div>
+                    <ul class="exp-desc">
+                        <li>Studied engineering on a remote island campus</li>
+                        <li>Self-learned web development and tech skills during downtime</li>
+                        <li>Balanced academics with continuous self-improvement</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">04</span>
+                <h2 class="section-title">Key Projects</h2>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card featured">
+                    <div class="project-image">
+                        <div class="project-placeholder">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <div class="project-badge">Website</div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Church Website</h3>
+                        <p>Built a full website for my church, enabling online presence and digital connection with members worldwide.</p>
+                        <div class="project-tags">
+                            <span class="tag">Web Development</span>
+                            <span class="tag">Design</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-placeholder">
+                            <i class="fab fa-twitter"></i>
+                        </div>
+                        <div class="project-badge">Social Media</div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Social Media Launch</h3>
+                        <p>Set up and managed social media platforms, growing the church's international community to thousands.</p>
+                        <div class="project-tags">
+                            <span class="tag">Social Media</span>
+                            <span class="tag">Marketing</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-placeholder">
+                            <i class="fas fa-bug"></i>
+                        </div>
+                        <div class="project-badge">Web3</div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Bug Reports & Reviews</h3>
+                        <p>Tested multiple Web3 applications, documented bugs, and provided detailed reviews for development teams.</p>
+                        <div class="project-tags">
+                            <span class="tag">App Testing</span>
+                            <span class="tag">Documentation</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-placeholder">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <div class="project-badge">QR Menu</div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Sorrel QR Table Menu</h3>
+                        <p>A phone-first digital menu with a 3D rendered aesthetic — ambient particles, perspective card tilt, glassmorphism panels, and GSAP ScrollTrigger animations.</p>
+                        <div class="project-tags">
+                            <span class="tag">GSAP</span>
+                            <span class="tag">ScrollTrigger</span>
+                            <span class="tag">QR</span>
+                            <span class="tag">CSS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">05</span>
+                <h2 class="section-title">Education</h2>
+            </div>
+            <div class="edu-cards">
+                <div class="edu-card">
+                    <div class="edu-icon"><i class="fas fa-ship"></i></div>
+                    <h3>Nigeria Maritime University</h3>
+                    <span class="edu-degree">Bachelor of Engineering (B.Eng.)</span>
+                    <span class="edu-period">2019 – 2024</span>
+                </div>
+                <div class="edu-card">
+                    <div class="edu-icon"><i class="fas fa-certificate"></i></div>
+                    <h3>Certifications</h3>
+                    <span class="edu-degree">Basic Safety Training (STCW)</span>
+                    <span class="edu-period">Maritech — 2025</span>
+                </div>
+                <div class="edu-card">
+                    <div class="edu-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Security Awareness</h3>
+                    <span class="edu-degree">Proficiency for All Seafarers</span>
+                    <span class="edu-period">Maritime Safety — 2025</span>
+                </div>
+                <div class="edu-card">
+                    <div class="edu-icon"><i class="fas fa-oil-can"></i></div>
+                    <h3>OTF Certification</h3>
+                    <span class="edu-degree">Oil Tank Farm Familiarization (OTF)</span>
+                    <span class="edu-period">Maritime Safety — 2025</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="design" class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">06</span>
+                <h2 class="section-title">Design Work</h2>
+            </div>
+            <p class="section-intro">Graphic design and visual work published on Behance — logos, brand identity, and creative explorations.</p>
+            <div class="design-grid">
+                <a href="https://www.behance.net/vinci001" target="_blank" rel="noopener" class="design-card">
+                    <div class="design-icon"><i class="fas fa-bolt"></i></div>
+                    <h3>NERDZZZ</h3>
+                    <span>Brand identity concept</span>
+                </a>
+                <a href="https://www.behance.net/vinci001" target="_blank" rel="noopener" class="design-card">
+                    <div class="design-icon"><i class="fab fa-discord"></i></div>
+                    <h3>Adeola Discord</h3>
+                    <span>Community brand kit</span>
+                </a>
+                <a href="https://www.behance.net/vinci001" target="_blank" rel="noopener" class="design-card">
+                    <div class="design-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>Ari-Fi</h3>
+                    <span>Fintech visual identity</span>
+                </a>
+                <a href="https://www.behance.net/vinci001" target="_blank" rel="noopener" class="design-card">
+                    <div class="design-icon"><i class="fas fa-shopping-bag"></i></div>
+                    <h3>Hand Bag Project</h3>
+                    <span>Product branding</span>
+                </a>
+                <a href="https://www.behance.net/vinci001" target="_blank" rel="noopener" class="design-card">
+                    <div class="design-icon"><i class="fas fa-gamepad"></i></div>
+                    <h3>My Playground</h3>
+                    <span>Personal creative sandbox</span>
+                </a>
+                <a href="https://www.behance.net/vinci001" target="_blank" rel="noopener" class="design-card">
+                    <div class="design-icon"><i class="fas fa-church"></i></div>
+                    <h3>Church Work</h3>
+                    <span>Ministry design collection</span>
+                </a>
+            </div>
+            <div class="design-cta">
+                <a href="https://www.behance.net/vinci001" target="_blank" rel="noopener" class="btn btn-outline">
+                    <i class="fab fa-behance"></i> View Full Portfolio on Behance
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="goals" class="section section-alt">
+        <div class="container">
+            <div class="goals-box">
+                <div class="goals-icon"><i class="fas fa-rocket"></i></div>
+                <h2>What's Next</h2>
+                <p>I'm currently building my skills in <strong>vibe coding</strong> and <strong>data analysis</strong>, contributing to open-source projects, and looking for a <strong>PPA</strong> to serve my country. I'm also upgrading my tech skills through the Tech Skills program.</p>
+                <div class="goals-tags">
+                    <span class="goal-tag"><i class="fas fa-briefcase"></i> Seeking PPA</span>
+                    <span class="goal-tag"><i class="fas fa-code"></i> Vibe Coding</span>
+                    <span class="goal-tag"><i class="fas fa-chart-line"></i> Data Analysis</span>
+                    <span class="goal-tag"><i class="fas fa-users"></i> Open Source</span>
+                    <span class="goal-tag"><i class="fas fa-graduation-cap"></i> Tech Skills</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <div class="container">
+            <div class="contact-wrapper">
+                <div class="section-header centered">
+                    <span class="section-number">07</span>
+                    <h2 class="section-title">Get In Touch</h2>
+                    <p class="section-desc">Open to PPA opportunities, collaborations, and learning partnerships.</p>
+                </div>
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                            <div>
+                                <h4>Phone</h4>
+                                <a href="tel:+2348134180229">+234 813 418 0229</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                            <div>
+                                <h4>Email</h4>
+                                <a href="mailto:ibochivincent@gmail.com">ibochivincent@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <div>
+                                <h4>Location</h4>
+                                <span>AS-Wonder Estate, Oribawa, Ibeju-Lekki, Lagos State</span>
+                            </div>
+                        </div>
+                        <div class="contact-social">
+                            <a href="https://www.behance.net/vinci001" target="_blank" rel="noopener" class="social-link" aria-label="Behance"><i class="fab fa-behance"></i></a>
+                            <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                            <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="subject" placeholder="Subject">
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">
+                            <span class="btn-text">Send Message</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="footer-logo">IV</span>
+                    <p>Building from nothing, one line of code at a time.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#story">Journey</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#experience">Experience</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2025 IBOCHI VINCENT. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="scroll-progress" id="scrollProgress">
+        <div class="scroll-progress-bar"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
