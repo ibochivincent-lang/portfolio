@@ -35,7 +35,13 @@ var navbar=document.getElementById('navbar');
 window.addEventListener('scroll',function(){
 if(navbar)navbar.classList.toggle('scrolled',window.scrollY>50);
 var bar=document.querySelector('.scroll-progress-bar');
-if(bar){var h=document.documentElement.scrollHeight-window.innerHeight;bar.style.width=(window.scrollY/h*100)+'%'}
+var pct=document.getElementById('scrollPercentValue');
+if(bar||pct){
+var h=document.documentElement.scrollHeight-window.innerHeight;
+var p=h>0?(window.scrollY/h*100):0;
+if(bar)bar.style.width=p+'%';
+if(pct)pct.textContent=Math.round(p)+'%';
+}
 });
 
 var observer=new IntersectionObserver(function(entries){
@@ -158,6 +164,18 @@ apply3DTilt(document.querySelector('.tilt-card-inner'),12);
 if(!window.matchMedia('(pointer: coarse)').matches){
 document.querySelectorAll('.project-card,.exp-card,.edu-card,.design-card,.skill-group').forEach(function(el){
 apply3DTilt(el,6);
+});
+}
+
+var viewToggle=document.getElementById('viewToggle');
+var workGrid=document.getElementById('workGrid');
+if(viewToggle&&workGrid){
+viewToggle.addEventListener('click',function(e){
+var btn=e.target.closest('.view-btn');
+if(!btn)return;
+viewToggle.querySelectorAll('.view-btn').forEach(function(b){b.classList.remove('active')});
+btn.classList.add('active');
+workGrid.classList.toggle('list-view',btn.dataset.view==='list');
 });
 }
 
