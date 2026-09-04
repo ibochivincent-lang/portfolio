@@ -155,6 +155,8 @@ if(!el)return;
 strength=strength||10;
 el.style.transformStyle='preserve-3d';
 el.addEventListener('mousemove',function(e){
+var grid=el.closest('#workGrid');
+if(grid&&(grid.classList.contains('carousel-view')||grid.classList.contains('drag-view')))return;
 var rect=el.getBoundingClientRect();
 var x=(e.clientX-rect.left)/rect.width-0.5;
 var y=(e.clientY-rect.top)/rect.height-0.5;
@@ -163,6 +165,8 @@ var rotateY=x*strength;
 el.style.transform='perspective(900px) rotateX('+rotateX+'deg) rotateY('+rotateY+'deg) translateZ(4px)';
 });
 el.addEventListener('mouseleave',function(){
+var grid=el.closest('#workGrid');
+if(grid&&(grid.classList.contains('carousel-view')||grid.classList.contains('drag-view')))return;
 el.style.transform='perspective(900px) rotateX(0) rotateY(0) translateZ(0)';
 });
 }
@@ -181,7 +185,12 @@ var btn=e.target.closest('.view-btn');
 if(!btn)return;
 viewToggle.querySelectorAll('.view-btn').forEach(function(b){b.classList.remove('active')});
 btn.classList.add('active');
-workGrid.classList.toggle('list-view',btn.dataset.view==='list');
+var view=btn.dataset.view;
+workGrid.classList.toggle('list-view',view==='list');
+workGrid.classList.toggle('carousel-view',view==='carousel');
+workGrid.classList.toggle('drag-view',view==='drag');
+workGrid.querySelectorAll('.design-card').forEach(function(card){card.style.transform=''});
+workGrid.dispatchEvent(new CustomEvent('viewchange',{detail:{view:view}}));
 });
 }
 

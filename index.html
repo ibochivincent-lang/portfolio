@@ -18,16 +18,17 @@
             <a href="#home" class="nav-logo"><img src="assets/vincent-transparent.png" alt="Vincent Ibochi"></a>
             <a href="#home" class="nav-wordmark">VINCENT<span>IBOCHI</span></a>
             <div class="nav-links">
-                <a href="#home" class="nav-link active">Home</a>
-                <a href="#story" class="nav-link">Journey</a>
-                <a href="#skills" class="nav-link">Skills</a>
-                <a href="#experience" class="nav-link">Experience</a>
-                <a href="#projects" class="nav-link">Projects</a>
-                <a href="#design" class="nav-link">Design</a>
-                <a href="#github" class="nav-link">GitHub</a>
-                <a href="#goals" class="nav-link">Goals</a>
-                <a href="#contact" class="nav-link">Contact</a>
+                <a href="#home" class="nav-link active" data-preview="Back to top">Home<svg class="underline-draw" viewBox="0 0 60 10"><path d=""></path></svg></a>
+                <a href="#story" class="nav-link" data-preview="My story since 2017">Journey<svg class="underline-draw" viewBox="0 0 60 10"><path d=""></path></svg></a>
+                <a href="#skills" class="nav-link" data-preview="Tools &amp; toolkit">Skills<svg class="underline-draw" viewBox="0 0 60 10"><path d=""></path></svg></a>
+                <a href="#experience" class="nav-link" data-preview="Where I've worked">Experience<svg class="underline-draw" viewBox="0 0 60 10"><path d=""></path></svg></a>
+                <a href="#projects" class="nav-link" data-preview="What I've built">Projects<svg class="underline-draw" viewBox="0 0 60 10"><path d=""></path></svg></a>
+                <a href="#design" class="nav-link" data-preview="Behance design work">Design<svg class="underline-draw" viewBox="0 0 60 10"><path d=""></path></svg></a>
+                <a href="#github" class="nav-link" data-preview="Open-source repos">GitHub<svg class="underline-draw" viewBox="0 0 60 10"><path d=""></path></svg></a>
+                <a href="#goals" class="nav-link" data-preview="What's next">Goals<svg class="underline-draw" viewBox="0 0 60 10"><path d=""></path></svg></a>
+                <a href="#contact" class="nav-link" data-preview="Let's talk">Contact<svg class="underline-draw" viewBox="0 0 60 10"><path d=""></path></svg></a>
             </div>
+            <div class="cursor-preview" id="cursorPreview"><span></span></div>
             <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark mode">
                 <i class="fas fa-moon"></i>
             </button>
@@ -71,6 +72,10 @@
                 </div>
             </div>
             <div class="hero-visual">
+                <svg class="orbit-path-svg" width="0" height="0">
+                    <path id="orbitPath" d="M190,20 C340,20 380,120 380,150 C380,180 340,280 190,280 C40,280 0,180 0,150 C0,120 40,20 190,20 Z"></path>
+                </svg>
+                <div class="orbit-dot" id="orbitDot"></div>
                 <div class="tilt-card" id="heroCard">
                     <div class="tilt-card-inner">
                         <div class="hero-card-top">
@@ -115,6 +120,14 @@
         </div>
     </section>
 
+    <div class="wave-divider">
+        <svg viewBox="0 0 1000 60" preserveAspectRatio="none">
+            <polyline points="0,30 1000,30"></polyline>
+            <polyline points="0,30 1000,30"></polyline>
+            <polyline points="0,30 1000,30"></polyline>
+        </svg>
+    </div>
+
     <section id="story" class="section">
         <div class="container">
             <div class="section-header">
@@ -122,7 +135,11 @@
                 <h2 class="section-title">The Journey</h2>
             </div>
             <p class="section-intro">From a quiet start in 2017 to building in the modern tech landscape — every step was deliberate.</p>
-            <div class="timeline-horizontal">
+            <div class="timeline-horizontal" id="journeyTimeline">
+                <svg class="journey-path-svg" viewBox="0 0 4 100" preserveAspectRatio="none">
+                    <path id="journeyPath" d="M2,0 L2,100"></path>
+                </svg>
+                <div class="journey-traveler" id="journeyTraveler"><i class="fas fa-rocket"></i></div>
                 <div class="t-node">
                     <div class="t-dot" style="background:#441A03"><i class="fas fa-school"></i></div>
                     <div class="t-content">
@@ -424,13 +441,22 @@
         <div class="container">
             <div class="section-header">
                 <span class="section-number">06</span>
-                <h2 class="section-title">Design Work</h2>
+                <h2 class="section-title">Design Work<svg class="title-underline" viewBox="0 0 240 16" preserveAspectRatio="none"><path id="designTitleDraw" d="M2,10 Q60,2 120,9 T238,7"></path></svg></h2>
+            </div>
+            <div class="compare-slider" id="compareSlider">
+                <div class="compare-before"><img src="assets/vincent-original.jpg" alt="Original photo"></div>
+                <div class="compare-after"><img src="assets/vincent-transparent.png" alt="Background removed"></div>
+                <div class="compare-handle"><i class="fas fa-arrows-left-right"></i></div>
+                <span class="compare-label compare-label-left">Original</span>
+                <span class="compare-label compare-label-right">Background Removed</span>
             </div>
             <div class="work-toolbar">
                 <p class="section-intro" style="margin-bottom:0">Graphic design and visual work published on Behance — logos, brand identity, and creative explorations.</p>
                 <div class="view-toggle" id="viewToggle">
                     <button type="button" class="view-btn active" data-view="grid">GRID</button>
                     <button type="button" class="view-btn" data-view="list">LIST</button>
+                    <button type="button" class="view-btn" data-view="carousel">CAROUSEL</button>
+                    <button type="button" class="view-btn" data-view="drag">DRAG</button>
                 </div>
             </div>
             <div class="design-grid" id="workGrid">
@@ -554,6 +580,10 @@
                     <span class="section-number">08</span>
                     <h2 class="section-title">Get In Touch</h2>
                     <p class="section-desc">Open to PPA opportunities, collaborations, and learning partnerships.</p>
+                    <svg class="plane-trail-svg" viewBox="0 0 400 100" preserveAspectRatio="none">
+                        <path id="planeTrailPath" d="M0,80 Q100,10 200,50 T400,15"></path>
+                    </svg>
+                    <div class="paper-plane" id="paperPlane"><i class="fas fa-paper-plane"></i></div>
                 </div>
                 <div class="contact-grid">
                     <div class="contact-info">
@@ -638,6 +668,13 @@
         <span id="scrollPercentValue">0%</span>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/MotionPathPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/DrawSVGPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/Physics2DPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/Observer.min.js"></script>
     <script src="script.js"></script>
+    <script src="gsap-effects.js"></script>
 </body>
 </html>

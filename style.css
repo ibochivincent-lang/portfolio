@@ -102,7 +102,7 @@ ul{list-style:none}
 .nav-link{font-size:0.85rem;font-weight:500;color:var(--text-secondary);transition:var(--transition);position:relative}
 .nav-link::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--accent);transition:var(--transition)}
 .nav-link:hover,.nav-link.active{color:var(--text-primary)}
-.nav-link:hover::after,.nav-link.active::after{width:100%}
+.nav-link.active::after{width:100%}
 @media(max-width:768px){
     .nav-links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:var(--bg-primary);padding:20px 24px;gap:16px;border-top:1px solid var(--border)}
     .nav-links.open{display:flex}
@@ -449,6 +449,111 @@ ul{list-style:none}
 .scroll-percent #scrollPercentValue{color:var(--accent);font-weight:600;min-width:32px;text-align:right}
 @media(max-width:768px){.scroll-percent{display:none}}
 
+/* ===== GSAP effects ===== */
+
+/* Wavy divider between Hero and Journey */
+.wave-divider{position:relative;height:60px;overflow:hidden;background:var(--bg-primary)}
+.wave-divider svg{width:100%;height:100%}
+.wave-divider polyline{fill:none;stroke:var(--border);stroke-width:1.5}
+.wave-divider polyline:nth-child(2){stroke:rgba(181,101,29,0.3)}
+.wave-divider polyline:nth-child(3){stroke:rgba(232,184,75,0.2)}
+
+/* Hero orbit loop */
+.orbit-path-svg{position:absolute;overflow:visible}
+.orbit-dot{
+    position:absolute;top:0;left:0;width:10px;height:10px;border-radius:50%;
+    background:var(--c-gold);box-shadow:0 0 12px var(--accent-glow);pointer-events:none;z-index:3;
+}
+
+/* Journey path traveler */
+#journeyTimeline{position:relative}
+.journey-path-svg{position:absolute;left:70px;top:10px;bottom:10px;width:4px;height:calc(100% - 20px);z-index:0}
+.journey-path-svg path{fill:none;stroke:var(--c-gold);stroke-width:4;stroke-linecap:round}
+.journey-traveler{
+    position:absolute;left:70px;top:0;width:24px;height:24px;margin-left:-10px;
+    display:flex;align-items:center;justify-content:center;border-radius:50%;
+    background:var(--gradient);color:#fff;font-size:0.7rem;box-shadow:0 0 14px var(--accent-glow);z-index:1;
+}
+@media(max-width:768px){.journey-path-svg,.journey-traveler{left:26px}}
+
+/* Nav underline draw + cursor preview */
+.nav-link{overflow:visible}
+.underline-draw{position:absolute;left:0;bottom:-8px;width:100%;height:8px;overflow:visible;pointer-events:none}
+.underline-draw path{fill:none;stroke:var(--accent);stroke-width:2;stroke-linecap:round}
+.cursor-preview{
+    position:fixed;top:0;left:0;z-index:1001;pointer-events:none;
+    padding:8px 16px;border-radius:100px;background:var(--c-brown);color:#fff;
+    font-family:var(--font-mono);font-size:0.72rem;letter-spacing:0.5px;white-space:nowrap;
+    opacity:0;transform:translate(-50%,-140%) scale(0.8);transition:opacity 0.2s ease;box-shadow:var(--shadow);
+}
+.cursor-preview.visible{opacity:1}
+
+/* Section-title draw-in underline (Design Work) */
+.section-title{position:relative;display:inline-block}
+.title-underline{position:absolute;left:0;bottom:-10px;width:100%;height:14px;overflow:visible}
+.title-underline path{fill:none;stroke:var(--c-gold);stroke-width:3;stroke-linecap:round}
+
+/* Before / after comparison slider */
+.compare-slider{
+    position:relative;max-width:420px;aspect-ratio:750/812;margin:0 auto 44px;
+    border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow);
+    cursor:ew-resize;user-select:none;background:
+        linear-gradient(45deg,#2a2a2a 25%,transparent 25%),linear-gradient(-45deg,#2a2a2a 25%,transparent 25%),
+        linear-gradient(45deg,transparent 75%,#2a2a2a 75%),linear-gradient(-45deg,transparent 75%,#2a2a2a 75%);
+    background-size:20px 20px;background-position:0 0,0 10px,10px -10px,-10px 0;background-color:#1a1a1a;
+}
+.compare-before,.compare-after{position:absolute;inset:0}
+.compare-before img,.compare-after img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
+.compare-after{clip-path:inset(0 0 0 var(--compare-pos, 50%))}
+.compare-handle{
+    position:absolute;top:0;bottom:0;left:var(--compare-pos, 50%);width:3px;background:var(--c-gold);
+    transform:translateX(-50%);pointer-events:none;box-shadow:0 0 10px var(--accent-glow);
+}
+.compare-handle::after{
+    content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+    width:38px;height:38px;border-radius:50%;background:var(--c-gold);
+    display:flex;align-items:center;justify-content:center;
+}
+.compare-handle i{
+    position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:#1a1a1a;font-size:0.85rem;z-index:1;
+}
+.compare-label{
+    position:absolute;bottom:12px;padding:5px 12px;border-radius:100px;
+    background:rgba(0,0,0,0.55);color:#fff;font-family:var(--font-mono);font-size:0.65rem;letter-spacing:1px;
+    text-transform:uppercase;pointer-events:none;
+}
+.compare-label-left{left:12px}
+.compare-label-right{right:12px}
+
+/* Design Work: carousel + drag view modes */
+#workGrid.carousel-view{
+    display:flex;align-items:center;justify-content:center;min-height:340px;
+    perspective:1200px;position:relative;gap:0;
+}
+#workGrid.carousel-view .design-card{
+    position:absolute;top:50%;left:50%;width:220px;margin:-90px 0 0 -110px;
+    transform-style:preserve-3d;backface-visibility:hidden;
+}
+#workGrid.drag-view{
+    display:flex;flex-wrap:nowrap;overflow:hidden;gap:20px;cursor:grab;padding-bottom:8px;
+}
+#workGrid.drag-view:active{cursor:grabbing}
+#workGrid.drag-view .design-card{flex:0 0 240px;user-select:none}
+#workGrid.drag-view .design-card img,#workGrid.drag-view .design-card *{pointer-events:none}
+
+/* Paper-plane scroll flourish (Contact) */
+.section-header.centered{position:relative}
+.plane-trail-svg{position:absolute;left:50%;top:-30px;transform:translateX(-50%);width:280px;height:70px;overflow:visible;opacity:0.5;pointer-events:none}
+.plane-trail-svg path{fill:none;stroke:var(--c-gold);stroke-width:2;stroke-dasharray:4 6;stroke-linecap:round}
+.paper-plane{
+    position:absolute;left:50%;top:-30px;width:26px;height:26px;margin:-13px 0 0 -13px;
+    display:flex;align-items:center;justify-content:center;border-radius:50%;
+    background:var(--gradient);color:#fff;font-size:0.75rem;box-shadow:0 0 14px var(--accent-glow);
+}
+
+/* Confetti dots (Physics2D burst) */
+.confetti-dot{position:fixed;top:0;left:0;width:8px;height:8px;border-radius:2px;pointer-events:none;z-index:2000}
+
 /* Responsive */
 @media(max-width:768px){
     .menu-toggle{display:flex}
@@ -460,4 +565,6 @@ ul{list-style:none}
     .btn{width:100%;justify-content:center}
     .goals-box{padding:40px 24px}
     .t-line{display:none}
+    .compare-slider{max-width:280px}
+    .cursor-preview{display:none}
 }
