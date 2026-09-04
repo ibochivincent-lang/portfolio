@@ -58,7 +58,7 @@ e.preventDefault();
 var btn=this.querySelector('.btn');
 btn.innerHTML='<i class="fas fa-spinner fa-spin"></i> Sending...';btn.disabled=true;
 setTimeout(function(){
-btn.innerHTML='<span class="btn-text">Message Sent!</span> <i class="fas fa-check"></i>';btn.style.background='#00e5a0';
+btn.innerHTML='<span class="btn-text">Message Sent!</span> <i class="fas fa-check"></i>';btn.style.background='#E8B84B';
 this.reset();
 setTimeout(function(){
 btn.innerHTML='<span class="btn-text">Send Message</span> <i class="fas fa-paper-plane"></i>';btn.style.background='';btn.disabled=false;
@@ -101,7 +101,7 @@ if(this.y<0||this.y>h)this.vy*=-1;
 };
 Particle.prototype.draw=function(){
 ctx.beginPath();ctx.arc(this.x,this.y,this.r,0,Math.PI*2);
-ctx.fillStyle='rgba(217,122,52,'+this.a+')';ctx.fill();
+ctx.fillStyle='rgba(232,184,75,'+this.a+')';ctx.fill();
 };
 for(var i=0;i<60;i++)particles.push(new Particle());
 
@@ -114,7 +114,7 @@ var dist=Math.sqrt(dx*dx+dy*dy);
 if(dist<120){
 ctx.beginPath();ctx.moveTo(particles[i].x,particles[i].y);
 ctx.lineTo(particles[j].x,particles[j].y);
-ctx.strokeStyle='rgba(217,122,52,'+(0.06*(1-dist/120))+')';
+ctx.strokeStyle='rgba(232,184,75,'+(0.06*(1-dist/120))+')';
 ctx.lineWidth=0.5;ctx.stroke();
 }
 }
@@ -129,7 +129,7 @@ var dist=Math.sqrt(dx*dx+dy*dy);
 if(dist<150){
 ctx.beginPath();ctx.moveTo(particles[i].x,particles[i].y);
 ctx.lineTo(mx2,my2);
-ctx.strokeStyle='rgba(217,122,52,'+(0.08*(1-dist/150))+')';
+ctx.strokeStyle='rgba(232,184,75,'+(0.08*(1-dist/150))+')';
 ctx.lineWidth=0.5;ctx.stroke();
 }
 }
