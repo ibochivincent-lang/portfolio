@@ -293,6 +293,59 @@ autoplay:anime.onScroll({target:header,enter:'75% top',leave:'25% top',sync:true
 });
 })();
 
+/* ---- 12b. Section headers type themselves out as you reach them ---- */
+(function(){
+var titles=document.querySelectorAll('.section-title, .goals-box h2');
+if(!titles.length)return;
+
+titles.forEach(function(title){
+/* Type only the text, leaving child elements (like the Design
+   underline SVG) untouched. */
+var textNodes=[];
+Array.prototype.forEach.call(title.childNodes,function(n){
+if(n.nodeType===3&&n.textContent.trim())textNodes.push(n);
+});
+if(!textNodes.length)return;
+
+var full=textNodes.map(function(n){return n.textContent}).join('').trim();
+if(!full)return;
+
+var span=document.createElement('span');
+title.replaceChild(span,textNodes[0]);
+for(var i=1;i<textNodes.length;i++)textNodes[i].parentNode.removeChild(textNodes[i]);
+
+if(reduceMotion){span.textContent=full;return}
+
+span.style.display='inline-block';
+span.textContent='';
+
+var played=false;
+anime.onScroll({
+target:title,enter:'88% top',
+onEnter:function(){
+if(played)return;
+played=true;
+/* Reserve the finished width first (measured now, so webfonts are
+   loaded) — otherwise the heading grows as it types and drags the
+   underline SVG along with it. */
+span.textContent=full;
+span.style.minWidth=span.getBoundingClientRect().width+'px';
+span.textContent='';
+title.classList.add('is-typing');
+var i=0;
+var timer=setInterval(function(){
+i++;
+span.textContent=full.slice(0,i);
+if(i>=full.length){
+clearInterval(timer);
+setTimeout(function(){title.classList.remove('is-typing')},900);
+}
+},45);
+}
+});
+});
+})();
+
 /* ---- 12. Hero background parallax (Simple Parallax Sections) ---- */
 (function(){
 var layer=document.querySelector('.hero-bg-layer');
