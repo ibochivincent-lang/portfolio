@@ -564,7 +564,7 @@ ul{list-style:none}
 @media(max-width:768px){.scroll-percent{display:none}}
 
 /* Terminal caret while a header types itself out */
-.section-title.is-typing::after,.goals-box h2.is-typing::after{
+.section-title.is-typing::after,.goals-box h2.is-typing::after,.hero-title.is-typing::after{
     content:'\258C';color:var(--accent);margin-left:1px;
     animation:caretBlink 0.7s steps(1) infinite;
 }

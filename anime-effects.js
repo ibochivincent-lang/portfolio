@@ -12,7 +12,58 @@ var heroEls=document.querySelectorAll('.hero-eyebrow-stack,.hero-label,.hero-tit
 var heroVisual=document.querySelector('.hero-visual');
 var navEls=document.querySelectorAll('.nav-logo,.nav-wordmark,.nav-link,.theme-toggle');
 
+/* Hero headline types itself out, keeping the gradient on the name half */
+function typeHeroTitle(){
+var title=document.querySelector('.hero-title');
+var grad=title&&title.querySelector('.gradient-text');
+if(!title||!grad)return;
+
+var lead='';
+Array.prototype.forEach.call(title.childNodes,function(n){
+if(n.nodeType===3)lead+=n.textContent;
+});
+lead=lead.replace(/\s+/g,' ').trim();
+var name=grad.textContent.trim();
+if(!lead&&!name)return;
+
+/* Lock the finished height first — this headline wraps to two lines,
+   so typing it would otherwise shove the whole hero around. */
+title.style.minHeight=title.getBoundingClientRect().height+'px';
+
+var leadSpan=document.createElement('span');
+var firstText=null;
+Array.prototype.forEach.call(title.childNodes,function(n){
+if(n.nodeType===3&&!firstText)firstText=n;
+});
+if(firstText)title.replaceChild(leadSpan,firstText);
+else title.insertBefore(leadSpan,grad);
+Array.prototype.slice.call(title.childNodes).forEach(function(n){
+if(n.nodeType===3)n.parentNode.removeChild(n);
+});
+
+leadSpan.textContent='';
+grad.textContent='';
+title.classList.add('is-typing');
+
+var i=0,total=lead.length+1+name.length;
+var timer=setInterval(function(){
+i++;
+if(i<=lead.length)leadSpan.textContent=lead.slice(0,i);
+else{
+leadSpan.textContent=lead+' ';
+grad.textContent=name.slice(0,i-lead.length-1);
+}
+if(i>=total){
+clearInterval(timer);
+setTimeout(function(){title.classList.remove('is-typing')},900);
+}
+},55);
+}
+
+var revealed=false;
 function reveal(){
+if(revealed)return;
+revealed=true;
 document.body.style.overflow='';
 /* Layout is only final once the intro releases the page — let
    scroll-driven animations re-measure against it. */
@@ -20,6 +71,7 @@ window.dispatchEvent(new CustomEvent('entrancecomplete'));
 anime.animate(pre,{opacity:[1,0],duration:600,ease:'outQuad',
 onComplete:function(){pre.style.display='none'}});
 anime.animate(heroEls,{opacity:[0,1],translateY:[28,0],duration:750,delay:anime.stagger(90),ease:'outExpo'});
+setTimeout(typeHeroTitle,420);
 anime.animate(navEls,{opacity:[0,1],translateY:[-14,0],duration:600,delay:anime.stagger(45),ease:'outExpo'});
 if(heroVisual)anime.animate(heroVisual,{opacity:[0,1],translateY:[40,0],scale:[0.94,1],duration:900,delay:250,ease:'outExpo'});
 }
@@ -51,6 +103,12 @@ if(bar)bar.style.width=n+'%';
 },
 onComplete:reveal
 });
+
+/* Never let the intro trap the page. requestAnimationFrame is paused in
+   background tabs and while the window is occluded, which stalls the
+   counter — so uncover the content regardless if it takes too long. */
+setTimeout(reveal,4000);
+window.addEventListener('pageshow',function(){setTimeout(reveal,4000)});
 })();
 
 /* ---- 1. Wavy divider (ambient, ScrollWaves-style) ---- */
