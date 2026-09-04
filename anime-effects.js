@@ -14,6 +14,9 @@ var navEls=document.querySelectorAll('.nav-logo,.nav-wordmark,.nav-link,.theme-t
 
 function reveal(){
 document.body.style.overflow='';
+/* Layout is only final once the intro releases the page — let
+   scroll-driven animations re-measure against it. */
+window.dispatchEvent(new CustomEvent('entrancecomplete'));
 anime.animate(pre,{opacity:[1,0],duration:600,ease:'outQuad',
 onComplete:function(){pre.style.display='none'}});
 anime.animate(heroEls,{opacity:[0,1],translateY:[28,0],duration:750,delay:anime.stagger(90),ease:'outExpo'});
@@ -21,7 +24,11 @@ anime.animate(navEls,{opacity:[0,1],translateY:[-14,0],duration:600,delay:anime.
 if(heroVisual)anime.animate(heroVisual,{opacity:[0,1],translateY:[40,0],scale:[0.94,1],duration:900,delay:250,ease:'outExpo'});
 }
 
-if(reduceMotion){pre.style.display='none';return}
+if(reduceMotion){
+pre.style.display='none';
+window.dispatchEvent(new CustomEvent('entrancecomplete'));
+return;
+}
 
 /* Start at the top so the intro actually plays over the hero,
    instead of the browser restoring a mid-page scroll position */
@@ -81,29 +88,7 @@ duration:14000,loop:true,ease:'linear'
 });
 })();
 
-/* ---- 3. Journey path draw-in + traveling icon (merges CodePenScrollMap, AnimatePath, RunningTractor) ---- */
-(function(){
-var timelineEl=document.getElementById('journeyTimeline');
-var pathEl=document.getElementById('journeyPath');
-var traveler=document.getElementById('journeyTraveler');
-if(!timelineEl||!pathEl||!traveler)return;
-var drawable=anime.createDrawable(pathEl);
-anime.animate(drawable,{
-draw:['0 0','0 1'],ease:'linear',
-autoplay:anime.onScroll({target:timelineEl,enter:'70% top',leave:'60% bottom',sync:true})
-});
-anime.animate(traveler,{
-top:['0%','100%'],ease:'linear',
-autoplay:anime.onScroll({target:timelineEl,enter:'70% top',leave:'60% bottom',sync:true})
-});
-timelineEl.querySelectorAll('.t-dot').forEach(function(d){
-anime.onScroll({
-target:d,enter:'65% top',
-onEnter:function(){anime.animate(d,{scale:[1,1.25,1],duration:500,ease:'outQuad'})},
-onEnterBack:function(){anime.animate(d,{scale:[1,1.25,1],duration:500,ease:'outQuad'})}
-});
-});
-})();
+/* ---- 3. Journey section moved to gsap-journey.js (standalone cards, GSAP) ---- */
 
 /* ---- 4. Nav underline draw-on-hover (random variant, svg.createDrawable) ---- */
 (function(){
