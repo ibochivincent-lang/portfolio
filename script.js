@@ -1,15 +1,21 @@
 (function(){
-var prefersDark=window.matchMedia('(prefers-color-scheme: dark)').matches;
+var root=document.documentElement;
 var saved=localStorage.getItem('portfolio-theme');
-if(saved==='light')document.documentElement.setAttribute('data-theme','light');
-else if(saved==='dark')document.documentElement.setAttribute('data-theme','dark');
-else if(prefersDark)document.documentElement.setAttribute('data-theme','dark');
+var current=saved==='light'?'light':'dark';
+root.setAttribute('data-theme',current);
 
 var toggle=document.getElementById('theme-toggle');
+function setToggleIcon(theme){
+if(!toggle)return;
+var icon=toggle.querySelector('i');
+if(icon)icon.className=theme==='light'?'fas fa-sun':'fas fa-moon';
+}
+setToggleIcon(current);
 if(toggle)toggle.addEventListener('click',function(){
-var c=document.documentElement.getAttribute('data-theme');
-if(c==='light'){document.documentElement.setAttribute('data-theme','dark');localStorage.setItem('portfolio-theme','dark')}
-else{document.documentElement.setAttribute('data-theme','light');localStorage.setItem('portfolio-theme','light')}
+var next=root.getAttribute('data-theme')==='light'?'dark':'light';
+root.setAttribute('data-theme',next);
+localStorage.setItem('portfolio-theme',next);
+setToggleIcon(next);
 });
 
 var menuToggle=document.getElementById('menuToggle');
