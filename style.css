@@ -74,7 +74,9 @@ ul{list-style:none}
     padding:8px 0;
 }
 [data-theme="light"] .navbar.scrolled{background:rgba(248,243,236,0.92);}
-.nav-container{display:grid;grid-template-columns:auto 1fr auto auto auto;align-items:center;gap:16px;max-width:1200px;margin:0 auto;padding:0 24px}
+/* 1120px matches .container and .hero-grid so the logo lines up with the
+   content column below it */
+.nav-container{display:grid;grid-template-columns:auto 1fr auto auto auto;align-items:center;gap:16px;max-width:1120px;margin:0 auto;padding:0 24px}
 .nav-logo{display:flex;align-items:center;grid-column:1}
 .nav-wordmark{
     grid-column:2;justify-self:center;text-align:center;font-family:var(--font-serif);font-style:italic;
@@ -232,6 +234,12 @@ ul{list-style:none}
 @keyframes scrollPulse{0%,100%{opacity:0.3;transform:scaleY(0.6)}50%{opacity:1;transform:scaleY(1)}}
 
 /* Sections */
+/* Every section wraps its content in .container, but the rule was never
+   written — so all of them rendered full-bleed against the viewport while
+   the hero sat in its own 1120px grid. Same column as .hero-grid so the
+   whole page shares one left edge. */
+.container{width:100%;max-width:1120px;margin:0 auto;padding:0 24px}
+
 .section{padding:100px 0;position:relative}
 .section-alt{background:var(--bg-secondary)}
 .section-header{position:relative;margin-bottom:60px}
